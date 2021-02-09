@@ -1,0 +1,5 @@
+pip~=19.3.1
+zlib~=1.2.11
+wheel~=0.33.6
+openssl~=1.1.1d
+setuptools~=42.0.2
