@@ -2,9 +2,8 @@ import random
 
 import telebot
 
-from config import api_key
 
-bot = telebot.TeleBot(api_key)
+bot = telebot.TeleBot('911773502:AAGrlR1WgfBJRufqs_OTFJd3p1W70NVmJMI')
 
 from telebot import types
 
