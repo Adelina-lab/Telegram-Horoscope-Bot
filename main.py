@@ -8,7 +8,6 @@ bot = telebot.TeleBot(api_key)
 
 from telebot import types
 
-
 first = ["День обещает быть насыщенным на приключения.", "Самое время для безумного поступка!",
          "Самое время решить старые вопросы.", "Этот день финансовой стабильности для вашего знака.",
          "День пройдет под эгидой любви, самое время решить все сердечные вопросы!",
@@ -34,21 +33,19 @@ third = [
     "Не бойтесь танцевать Самбо белого мотылька у всех на глазах, всё равно вы лучше всех!"]
 
 
-
-
 @bot.message_handler(content_types=['text'])
 def get_text_messages(message):
     if message.text.lower() in ("Привет", "Hello", "Здрасьте", "Пока", "Здравствуйте", "Чекаво"):
-        bot.send_message(message.from_user.id, "Привет, сейчас я расскажу тебе гороскоп на сегодня.")
-
+        bot.send_message(message.from_user.id, "Привет, а мне целый ГОД! сейчас я расскажу тебе гороскоп на сегодня.")
 
     keyboard = types.InlineKeyboardMarkup()
 
-    zodiac_signs = ['Овен', 'Телец', 'Близнецы', 'Рак', 'Лев', 'Дева', 'Весы', 'Скорпион', 'Стрелец', 'Козерог', 'Водолей', 'Рыбы']
+    zodiac_signs = ['Овен', 'Телец', 'Близнецы', 'Рак', 'Лев', 'Дева', 'Весы', 'Скорпион', 'Стрелец', 'Козерог',
+                    'Водолей', 'Рыбы']
     for sign in zodiac_signs:
         keyboard.add(types.InlineKeyboardButton(text=sign, callback_data='zodiac'))
 
-    bot.send_message(message.from_user.id, text="Выбери свой знак зодиака", reply_markup=keyboard)
+    bot.send_message(message.from_user.id, text="Привет, а мне целый ГОД! сейчас я расскажу тебе гороскоп на сегодня.", reply_markup=keyboard)
 
     if message.text == "/help":
         bot.send_message(message.from_user.id, "Напиши Привет")
@@ -65,6 +62,7 @@ def callback_worker(call):
 
 def main():
     bot.polling(none_stop=True, interval=0)
+
 
 if __name__ == '__main__':
     main()
